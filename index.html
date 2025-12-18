@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body style="margin:0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;">
+    <div class="g-recaptcha"
+         data-sitekey="6LfJvS8sAAAAAD94RjcINtfTP6tt7I_reFV8jzw6"
+         data-callback="captchaDone"
+         data-theme="dark">
+    </div>
+    
+    <script>
+    function captchaDone(token) {
+        document.body.style.background = '#0a0';
+        console.log('Token:', token);
+        
+        // TEST için: 5 saniye sonra resetle
+        setTimeout(() => {
+            grecaptcha.reset();
+            document.body.style.background = '#000';
+        }, 5000);
+    }
+    </script>
+</body>
+</html>
